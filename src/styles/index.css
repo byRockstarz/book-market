@@ -72,3 +72,7 @@ code {
 .background-main {
   background-color: azure;
 }
+
+.text-decoration-none {
+  text-decoration: none;
+}

@@ -6,19 +6,19 @@ const Router = () => {
     <Switch>
       <Redirect exact path="/" to={path.home} />
       <Route path={path.home}>
-        <div>home</div>
+        <div></div>
       </Route>
       <Route path={path.createBook}>
-        <div>createbook</div>
+        <div></div>
       </Route>
       <Route path={`${path.updateBook}/:bookId`}>
-        <div>update</div>
+        <div></div>
       </Route>
       <Route path={`${path.detailBook}/:bookId`}>
-        <div>detailbook</div>
+        <div></div>
       </Route>
       <Route path="*">
-        <div>ERROR 404 NOT FOUND</div>
+        <div>ERROR 404</div>
       </Route>
     </Switch>
   );
