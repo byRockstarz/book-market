@@ -2,10 +2,23 @@
   margin: 10px;
 }
 
+.mg-5px {
+  margin: 5px;
+}
+
 ul.navbarhorizontal {
   list-style-type: none;
 }
 
 .background-color-grey {
   background-color: black;
+}
+
+.color-white {
+  color: white;
+}
+
+.width-height-21px {
+  max-width: 21px;
+  max-height: 21px;
 }

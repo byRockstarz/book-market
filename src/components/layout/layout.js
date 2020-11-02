@@ -1,14 +1,28 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../../styles/layout.css";
 
 const Layout = () => {
   return (
-    <ul className="navbarhorizontal d-flex background-color-grey">
+    <ul className="mr-auto navbarhorizontal d-flex background-color-grey mg-5px">
+      <img
+        className="width-height-21px mg-10px"
+        src="https://www.iconarchive.com/download/i85581/graphicloads/100-flat/home.ico"
+      />
       <li>
-        <Link className="text-decoration-none mg-10px">page1</Link>
+        <NavLink
+          to=""
+          className="text-decoration-none color-white mg-10px d-block"
+        >
+          หน้าหลัก
+        </NavLink>
       </li>
       <li>
-        <Link className="text-decoration-none mg-10px">page2</Link>
+        <NavLink
+          to=""
+          className="text-decoration-none color-white mg-10px d-block"
+        >
+          สร้างหนังสือ
+        </NavLink>
       </li>
     </ul>
   );
