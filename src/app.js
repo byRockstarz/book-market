@@ -4,8 +4,8 @@ import Layout from "./components/layout/layout";
 function App() {
   return (
     <div>
-      <Router />
       <Layout />
+      <Router />
     </div>
   );
 }

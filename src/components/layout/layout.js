@@ -10,7 +10,7 @@ const Layout = () => {
       />
       <li>
         <NavLink
-          to=""
+          to="/"
           className="text-decoration-none color-white mg-10px d-block"
         >
           หน้าหลัก
@@ -18,7 +18,7 @@ const Layout = () => {
       </li>
       <li>
         <NavLink
-          to=""
+          to="/book/create"
           className="text-decoration-none color-white mg-10px d-block"
         >
           สร้างหนังสือ

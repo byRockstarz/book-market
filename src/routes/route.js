@@ -1,15 +1,17 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 import { path } from "./constant";
+import Create from "../pages/book/create";
+import Home from "../pages/home";
 
 const Router = () => {
   return (
     <Switch>
       <Redirect exact path="/" to={path.home} />
       <Route path={path.home}>
-        <div></div>
+        <Home />
       </Route>
       <Route path={path.createBook}>
-        <div></div>
+        <Create />
       </Route>
       <Route path={`${path.updateBook}/:bookId`}>
         <div></div>

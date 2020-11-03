@@ -10,6 +10,10 @@ ul.navbarhorizontal {
   list-style-type: none;
 }
 
+ul.navbarhorizontal.li.a:hover {
+  background-color: white;
+}
+
 .background-color-grey {
   background-color: black;
 }
