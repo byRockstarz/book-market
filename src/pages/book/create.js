@@ -4,15 +4,9 @@ import "../../styles/create.css";
 import "../../styles/index.css";
 
 const SignupSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(2, "ชื่อสั้นเกินไป")
-    .max(50, "ชื่อยาวเกินไป!")
-    .required("กรุณากรอกชื่อ"),
-  lastName: Yup.string()
-    .min(2, "นามสกุลสั้นเกินไป")
-    .max(50, "นามสกุลยาวเกินไป")
-    .required("กรุณากรอกนามสกุล"),
-  email: Yup.string().email("อีเมลไม่ถูกต้อง").required("กรุณากรอกอีเมล"),
+  bookName: Yup.string().required("กรอกชื่อหนังสือ"),
+  detailBook: Yup.string().required(""),
+  priceBook: Yup.string().required(""),
 });
 
 const CreateBook = () => {
@@ -30,58 +24,58 @@ const CreateBook = () => {
   return (
     <form onSubmit={formik.handleSubmit}>
       <div className="d-flex">
-        <div className="background-color-grey mx-auto pd-10px max-height-70p width-40p">
-          <div className="">
-            <h1 className="color-white text-align-center">สมัครสมาชิก</h1>
-            <hr className="bd-white-1px" />
-            <label htmlFor="firstName" className="color-white mb-10px">
-              ชื่อ
-            </label>
-            <div className="mx-auto">
+        <div className="mx-auto mt-20px pd-20px background-color-grey radius-20px width-400px">
+          <h1 className="text-align-center color-white">สร้างหนังสือใหม่</h1>
+          <div className="mb-20px">
+            <label htmlFor="bookName">ชื่อหนังสือ</label>
+
+            <div className="mt-10px">
               <input
-                id="firstName"
-                name="firstName"
+                id="bookName"
+                name="bookName"
                 type="text"
                 onChange={formik.handleChange}
-                value={formik.values.firstName}
+                value={formik.values.bookName}
                 onBlur={formik.handleBlur}
-                placeholder="กรุณากรอกชื่อ"
-                className="pd-10px mb-10px no-bd"
+                placeholder="กรุณากรอกชื่อหนังสือ"
+                className="width-100per no-bd pt-pb-pl-10px"
               />
-              {formik.touched.firstName && (
-                <div className="color-error mb-10px">
-                  {formik.errors.firstName}
+              {formik.touched.bookName && (
+                <div className="mg-10px color-red">
+                  {formik.errors.bookName}
                 </div>
               )}
             </div>
           </div>
-          <div>
-            <label htmlFor="lastName" className="color-white mb-10px">
+
+          <div className="mb-20px">
+            <label htmlFor="detailBook" className="">
               นามสกุล
             </label>
-            <div>
+            <div className="mt-10px">
               <input
-                id="lastName"
-                name="lastName"
+                id="detailBook"
+                name="detailBook"
                 type="text"
                 onChange={formik.handleChange}
-                value={formik.values.lastName}
+                value={formik.values.detailBook}
                 onBlur={formik.handleBlur}
                 placeholder="กรุณากรอกนามสกุล"
-                className="pd-10px mb-10px no-bd"
+                className="width-100per no-bd pt-pb-pl-10px"
               />
-              {formik.touched.lastName && (
+              {formik.touched.detailBook && (
                 <div className="color-error mb-10px">
-                  {formik.errors.lastName}
+                  {formik.errors.detailBook}
                 </div>
               )}
             </div>
           </div>
-          <div>
-            <label htmlFor="email" className="color-white mb-10px">
+
+          <div className="mb-20px">
+            <label htmlFor="email" className="">
               อีเมล
             </label>
-            <div>
+            <div className="mt-10px">
               <input
                 id="email"
                 name="email"
@@ -90,15 +84,42 @@ const CreateBook = () => {
                 value={formik.values.email}
                 onBlur={formik.handleBlur}
                 placeholder="กรุณากรอกอีเมล"
-                className="pd-10px mb-10px no-bd"
+                className="width-100per no-bd pt-pb-pl-10px"
               />
               {formik.touched.email && (
                 <div className="color-error mb-10px">{formik.errors.email}</div>
               )}
             </div>
           </div>
+
+          <div className="mb-20px">
+            <label htmlFor="email" className="">
+              อีเมล
+            </label>
+            <div className="mt-10px">
+              <div>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  onChange={formik.handleChange}
+                  value={formik.values.email}
+                  onBlur={formik.handleBlur}
+                  placeholder="กรุณากรอกอีเมล"
+                  className="width-100per no-bd pt-pb-pl-10px"
+                />
+              </div>
+              {formik.touched.email && (
+                <div className="color-error mb-10px">{formik.errors.email}</div>
+              )}
+            </div>
+          </div>
           <div>
-            <button type="submit">สมัครสมาชิก</button>
+            <div className="d-flex">
+              <button className="mx-auto" type="submit">
+                ยืนยัน
+              </button>
+            </div>
           </div>
         </div>
       </div>
