@@ -12,6 +12,15 @@ class Book {
       throw error;
     }
   }
+
+  async getBooks() {
+    try {
+      const response = await axios.get(this.url);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 const BookService = new Book();

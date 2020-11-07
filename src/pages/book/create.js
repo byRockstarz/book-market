@@ -11,6 +11,7 @@ const SignupSchema = Yup.object().shape({
   description: Yup.string().required("โปรดใส่รายละเอียด"),
   price: Yup.number().required("กรุณาใส่ราคา"),
   stock: Yup.number().required("กรอกจำนวน"),
+  imageUrl: Yup.string().required("กรอกลิงก์รูปภาพ"),
 });
 
 const CreateBook = () => {
@@ -133,6 +134,31 @@ const CreateBook = () => {
               </div>
               {formik.touched.stock && (
                 <div className="mg-10px color-red">{formik.errors.stock}</div>
+              )}
+            </div>
+          </div>
+
+          <div className="mb-20px">
+            <label htmlFor="imageUrl" className="">
+              รูปภาพ
+            </label>
+            <div className="mt-10px">
+              <div>
+                <input
+                  id="imageUrl"
+                  name="imageUrl"
+                  type="string"
+                  onChange={formik.handleChange}
+                  value={formik.values.imageUrl}
+                  onBlur={formik.handleBlur}
+                  placeholder="รูปภาพ"
+                  className="width-100per no-bd pt-pb-pl-10px"
+                />
+              </div>
+              {formik.touched.imageUrl && (
+                <div className="mg-10px color-red">
+                  {formik.errors.imageUrl}
+                </div>
               )}
             </div>
           </div>
