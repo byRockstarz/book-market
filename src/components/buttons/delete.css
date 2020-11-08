@@ -1,0 +1,23 @@
+.delete-button {
+  position: relative;
+  border: none;
+  padding: 5px;
+  width: 100%;
+  font-size: 20px;
+  background-color: white;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: rgb(255, 37, 37);
+  color: white;
+}
+
+.delete-button:active {
+  border: none;
+}

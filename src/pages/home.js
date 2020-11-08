@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import BookService from "../services/book-services";
 import Card from "../views/home/card.js";
 
-const Home = () => {
+const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [books, setBooks] = useState([]);
 
@@ -10,21 +10,33 @@ const Home = () => {
     getBooks();
   }, []);
 
+  const handleDeleteBook = async (bookId) => {
+    console.log(bookId);
+    const newBooks = await BookService.delete(bookId);
+    getBooks();
+  };
+
   const getBooks = async () => {
     const books = await BookService.getBooks();
     setBooks(books);
     setIsLoading(false);
   };
   if (isLoading) {
-    return <div>Loading ...</div>;
+    return (
+      <div className="d-flex">
+        <h1 className="mx-auto">Loading...</h1>
+      </div>
+    );
   }
   return (
-    <div className="d-flex">
+    <div className="d-flex flex-wrap">
       {books.map((book) => {
-        return <Card book={book} key={book.id} />;
+        return (
+          <Card book={book} key={book.id} handleDeleteBook={handleDeleteBook} />
+        );
       })}
     </div>
   );
 };
 
-export default Home;
+export default HomePage;

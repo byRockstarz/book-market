@@ -21,6 +21,24 @@ class Book {
       throw error;
     }
   }
+
+  async getBookById(bookId) {
+    try {
+      const response = await axios.get(`${this.url}/${bookId}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async delete(bookId) {
+    try {
+      const response = await axios.delete(`${this.url}/${bookId}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 const BookService = new Book();

@@ -3,7 +3,7 @@ import "../../styles/layout.css";
 
 const Layout = () => {
   return (
-    <ul className="mr-auto navbarhorizontal d-flex background-color-grey mg-5px">
+    <ul className="mr-auto navbarhorizontal d-flex background-color-black mg-5px">
       <img
         className="width-height-21px mg-10px"
         src="https://www.iconarchive.com/download/i85581/graphicloads/100-flat/home.ico"

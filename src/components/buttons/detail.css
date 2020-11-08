@@ -1,0 +1,29 @@
+.detail-button {
+  position: relative;
+  border: none;
+  padding: 5px;
+  font-size: 20px;
+  background-color: white;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
+.detail-button:hover {
+  background-color: rgb(90, 139, 158);
+  color: white;
+}
+
+.detail-button:active {
+  border: none;
+}
+
+.border-button {
+  border-top: solid 2px lightcoral;
+}
