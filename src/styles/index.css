@@ -72,6 +72,10 @@ code {
   margin-top: 10px;
 }
 
+.mt-15px {
+  margin-top: 15px;
+}
+
 .text-decoration-none {
   text-decoration: none;
 }

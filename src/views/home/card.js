@@ -5,8 +5,10 @@ import { path } from "../../routes/constant";
 import { NavLink } from "react-router-dom";
 import EditButton from "../../components/buttons/edit.js";
 import DeleteButton from "../../components/buttons/delete.js";
+import Rating from "react-rating";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
-const Card = ({ book, handleDeleteBook }) => {
+const Card = ({ book, handleDeleteBook, handleUpdateRating }) => {
   const handleDelete = () => {
     const isConfirm = window.confirm("คุณต้องการลบหนังสือเล่มนี้ใช่หรือไม่");
     if (isConfirm) {
@@ -14,8 +16,12 @@ const Card = ({ book, handleDeleteBook }) => {
     }
   };
 
+  const handleRatingChange = (rating) => {
+    handleUpdateRating(book.id, rating);
+  };
+
   return (
-    <div className="border-card box-shadow width-200px">
+    <div className="border-card box-shadow width-250px">
       <div className="d-flex">
         <div className="mx-auto">
           <img
@@ -31,6 +37,13 @@ const Card = ({ book, handleDeleteBook }) => {
       <a className="description-radius-in-card text-align-center">
         {book.description}
       </a>
+      <Rating
+        initialRating={book.rating}
+        onChange={handleRatingChange}
+        className="width-100per text-align-center mt-15px"
+        emptySymbol={<AiOutlineStar color="gold" size="20px" />}
+        fullSymbol={<AiFillStar color="gold" size="20px" />}
+      />
       <h4 className="text-align-center"> จำนวนสินค้าคงเหลือ : {book.stock}</h4>
       <div className="d-flex flex-wrap">
         <hr className="border-hr"></hr>
@@ -42,6 +55,7 @@ const Card = ({ book, handleDeleteBook }) => {
             Detail
           </NavLink>
         </div>
+
         <hr className="border-hr"></hr>
         <div className="width-100per text-align-center">
           <EditButton>Edit</EditButton>
