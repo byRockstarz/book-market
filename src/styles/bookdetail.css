@@ -1,0 +1,23 @@
+.max-width-600px {
+  max-width: 600px;
+}
+
+.size-book-cover {
+  width: 700px;
+}
+
+.border-card-book {
+  border: solid 2px rgb(223, 223, 223);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  padding: 10px;
+}
+
+.grid-item {
+  margin: 10px;
+  padding: 10px;
+}

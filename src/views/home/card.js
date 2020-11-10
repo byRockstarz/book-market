@@ -21,7 +21,7 @@ const Card = ({ book, handleDeleteBook, handleUpdateRating }) => {
   };
 
   return (
-    <div className="border-card box-shadow width-250px">
+    <div className="border-card box-shadow width-300px">
       <div className="d-flex">
         <div className="mx-auto">
           <img
