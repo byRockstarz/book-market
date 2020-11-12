@@ -116,3 +116,16 @@ input[type="number"] {
 .width-50per {
   width: 50%;
 }
+
+.loader-home {
+  border: 10px solid white; /* Light grey */
+  border-top: 10px solid black; /* Blue */
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite;
+}
+
+.mt-200px {
+  margin-top: 200px;
+}

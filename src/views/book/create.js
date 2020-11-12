@@ -3,8 +3,9 @@ import { useState } from "react";
 import * as Yup from "yup";
 import { FaBook } from "react-icons/fa";
 import BookService from "../../services/book-services";
+import "../../styles/index.css";
 
-const SignupSchema = Yup.object().shape({
+const AddBookSchema = Yup.object().shape({
   title: Yup.string().required("กรอกชื่อหนังสือ"),
   description: Yup.string().required("โปรดใส่รายละเอียด"),
   price: Yup.number().required("กรุณาใส่ราคา"),
@@ -34,133 +35,123 @@ const Create = () => {
       description: "",
       price: "",
       stock: "",
+      imageUrl: "",
     },
-    validationSchema: SignupSchema,
+
     onSubmit: (values) => {
       handleSubmit(values);
     },
+    validationSchema: AddBookSchema,
   });
 
   return (
-    <form onSubmit={Formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit}>
       <div className="d-flex">
-        <div className="mx-auto mt-20px pd-20px background-color-grey radius-20px width-400px">
-          <div className="d-flex mr-20px">
-            <FaBook color="white" size="50" />
-            <h1 className="text-align-center color-white">สร้างหนังสือใหม่</h1>
+        <div className="mx-auto width-400px background-color-grey pd-20px">
+          <di>
+            <FaBook className="width-100per" />
+          </di>
+          <h1 className="text-align-center width-100per">สร้างหนังสือใหม่</h1>
+
+          <label htmlFor="title">ชื่อหนังสือ</label>
+
+          <div className="mt-10px height-80px">
+            <input
+              id="title"
+              name="title"
+              type="text"
+              onChange={formik.handleChange}
+              value={formik.values.title}
+              onBlur={formik.handleBlur}
+              placeholder="ชื่อหนังสือ"
+              className="width-100per border-box pt-pb-pl-10px"
+            />
+            {formik.touched.title && (
+              <div className="mg-10px color-red">{formik.errors.title}</div>
+            )}
           </div>
 
-          <div className="mb-20px">
-            <label htmlFor="title">ชื่อหนังสือ</label>
-
-            <div className="mt-10px">
-              <input
-                id="title"
-                name="title"
-                type="text"
-                onChange={formik.handleChange}
-                value={formik.values.title}
-                onBlur={formik.handleBlur}
-                placeholder="ชื่อหนังสือ"
-                className="width-100per no-bd pt-pb-pl-10px"
-              />
-              {formik.touched.title && (
-                <div className="mg-10px color-red">{formik.errors.title}</div>
-              )}
-            </div>
+          <label htmlFor="description" className="">
+            รายละเอียด
+          </label>
+          <div className="mt-10px height-80px">
+            <input
+              id="description"
+              name="description"
+              type="text"
+              onChange={formik.handleChange}
+              value={formik.values.description}
+              onBlur={formik.handleBlur}
+              placeholder="รายละเอียดหนังสือ"
+              className="width-100per border-box pt-pb-pl-10px"
+            />
+            {formik.touched.description && (
+              <div className="mg-10px color-red">
+                {formik.errors.description}
+              </div>
+            )}
           </div>
 
-          <div className="mb-20px">
-            <label htmlFor="description" className="">
-              รายละเอียด
-            </label>
-            <div className="mt-10px">
-              <input
-                id="description"
-                name="description"
-                type="text"
-                onChange={formik.handleChange}
-                value={formik.values.description}
-                onBlur={formik.handleBlur}
-                placeholder="รายละเอียดหนังสือ"
-                className="width-100per no-bd pt-pb-pl-10px"
-              />
-              {formik.touched.description && (
-                <div className="mg-10px color-red">
-                  {formik.errors.description}
-                </div>
-              )}
-            </div>
+          <label htmlFor="price" className="">
+            ราคา
+          </label>
+          <div className="mt-10px height-80px">
+            <input
+              id="price"
+              name="price"
+              type="number"
+              onChange={formik.handleChange}
+              value={formik.values.price}
+              onBlur={formik.handleBlur}
+              placeholder="ราคา"
+              className="width-100per border-box pt-pb-pl-10px"
+            />
+            {formik.touched.price && (
+              <div className="mg-10px color-red">{formik.errors.price}</div>
+            )}
           </div>
 
-          <div className="mb-20px">
-            <label htmlFor="price" className="">
-              ราคา
-            </label>
-            <div className="mt-10px">
+          <label htmlFor="stock" className="">
+            จำนวนสินค้า
+          </label>
+          <div className="mt-10px height-80px">
+            <div>
               <input
-                id="price"
-                name="price"
+                id="stock"
+                name="stock"
                 type="number"
                 onChange={formik.handleChange}
-                value={formik.values.price}
+                value={formik.values.stock}
                 onBlur={formik.handleBlur}
-                placeholder="ราคา"
-                className="width-100per no-bd pt-pb-pl-10px"
+                placeholder="จำนวนสินค้าคงเหลือ"
+                className="width-100per border-box pt-pb-pl-10px"
               />
-              {formik.touched.price && (
-                <div className="mg-10px color-red">{formik.errors.price}</div>
-              )}
             </div>
+            {formik.touched.stock && (
+              <div className="mg-10px color-red">{formik.errors.stock}</div>
+            )}
           </div>
 
-          <div className="mb-20px">
-            <label htmlFor="stock" className="">
-              จำนวนสินค้า
-            </label>
-            <div className="mt-10px">
-              <div>
-                <input
-                  id="stock"
-                  name="stock"
-                  type="number"
-                  onChange={formik.handleChange}
-                  value={formik.values.stock}
-                  onBlur={formik.handleBlur}
-                  placeholder="จำนวนสินค้าคงเหลือ"
-                  className="width-100per no-bd pt-pb-pl-10px"
-                />
-              </div>
-              {formik.touched.stock && (
-                <div className="mg-10px color-red">{formik.errors.stock}</div>
-              )}
-            </div>
+          <label htmlFor="imageUrl" className="">
+            รูปภาพ
+          </label>
+          <div className="mt-10px height-80px">
+            <input
+              id="imageUrl"
+              name="imageUrl"
+              type="string"
+              onChange={formik.handleChange}
+              value={formik.values.imageUrl}
+              onBlur={formik.handleBlur}
+              placeholder="รูปภาพ"
+              className="width-100per border-box pt-pb-pl-10px"
+            />
+
+            {formik.touched.imageUrl && (
+              <div className="mg-10px color-red">{formik.errors.imageUrl}</div>
+            )}
           </div>
 
-          <div className="mb-20px">
-            <label htmlFor="imageUrl" className="">
-              รูปภาพ
-            </label>
-            <div className="mt-10px">
-              <div>
-                <input
-                  id="imageUrl"
-                  name="imageUrl"
-                  type="string"
-                  onChange={formik.handleChange}
-                  value={formik.values.imageUrl}
-                  onBlur={formik.handleBlur}
-                  placeholder="รูปภาพ"
-                  className="width-100per no-bd pt-pb-pl-10px"
-                />
-              </div>
-              {formik.touched.imageUrl && (
-                <div className="mg-10px color-red">
-                  {formik.errors.imageUrl}
-                </div>
-              )}
-            </div>
-          </div>
           <div className="d-flex">
             <button
               className="mx-auto pd-10px"

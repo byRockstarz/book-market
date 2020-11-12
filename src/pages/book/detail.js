@@ -18,7 +18,14 @@ const DetailPage = () => {
     setIsLoading(false);
   };
   if (isLoading) {
-    return <div>Loading....</div>;
+    return (
+      <div className="d-flex">
+        <div className="mx-auto mt-200px">
+          <div className="loader-home"></div>
+          <h1>Loading ...</h1>
+        </div>
+      </div>
+    );
   }
   return <BookDetail book={book} />;
 };

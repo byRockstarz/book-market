@@ -30,11 +30,9 @@ const BookDetail = ({ book, handleRatingChange }) => {
         </div>
         <div className="d-flex">
           <div className="mx-auto">
-            <BackButton className="back-button">
-              <Link to="/" className="text-decoration-none">
-                กลับหน้าหลัก
-              </Link>
-            </BackButton>
+            <Link to="/" className="text-decoration-none">
+              <BackButton className="back-button">กลับหน้าหลัก</BackButton>
+            </Link>
           </div>
         </div>
       </div>

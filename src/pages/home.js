@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BookService from "../services/book-services";
 import Card from "../views/home/card.js";
+import "../styles/index.css";
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,7 +40,10 @@ const HomePage = () => {
   if (isLoading) {
     return (
       <div className="d-flex">
-        <h1 className="mx-auto">Loading...</h1>
+        <div className="mx-auto mt-200px">
+          <div className="loader-home"></div>
+          <h1>Loading ...</h1>
+        </div>
       </div>
     );
   }
