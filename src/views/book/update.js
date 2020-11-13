@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { path } from "../../routes/constant";
 import BookService from "../../services/book-services";
 import "../../styles/index.css";
 import BookForm from "./form";
+import { useHistory } from "react-router-dom";
+import { path } from "../../routes/constant";
 
-const Create = () => {
+const UpdateBook = ({ book }) => {
   const [isLoading, setIsloading] = useState(false);
 
   const history = useHistory();
@@ -13,12 +13,11 @@ const Create = () => {
   const handleSubmit = async (values) => {
     setIsloading(true);
     try {
-      const response = await BookService.create(values);
-      console.log(response);
-      alert("สร้างหนังสือสำเร็จ");
+      const response = await BookService.updateBookDetail(book.id, values);
+
+      alert("อัพเดทข้อมูลหนังสือแล้ว");
       history.push(path.home);
     } catch (error) {
-      console.log(error);
       alert(error.message);
     }
     setIsloading(false);
@@ -26,11 +25,11 @@ const Create = () => {
 
   return (
     <BookForm
-      book={{}}
+      book={book}
       handleSubmit={handleSubmit}
       isLoading={isLoading}
-      title={"สร้างหนังสือใหม่"}
+      title={"อัพเดทข้อมูลหนังสือ"}
     />
   );
 };
-export default Create;
+export default UpdateBook;

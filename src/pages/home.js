@@ -49,7 +49,7 @@ const HomePage = () => {
   }
   return (
     <div>
-      <h1 className="width-100per text-align-center">
+      <h1 className="width-100per text-align-center mt-80px">
         ร้านขายหนังสือออนไลน์ที่ใหญ่ที่สุด
       </h1>
       <div className="d-flex flex-wrap">

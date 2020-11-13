@@ -2,7 +2,7 @@ import "../../styles/index.css";
 import "../../styles/card.css";
 import "../../components/buttons/detail.css";
 import { path } from "../../routes/constant";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import EditButton from "../../components/buttons/edit.js";
 import DeleteButton from "../../components/buttons/delete.js";
 import Rating from "react-rating";
@@ -58,7 +58,9 @@ const Card = ({ book, handleDeleteBook, handleUpdateRating }) => {
 
         <hr className="border-hr"></hr>
         <div className="width-100per text-align-center">
-          <EditButton>Edit</EditButton>
+          <Link to={`${path.updateBook}/${book.id}`}>
+            <EditButton>Edit</EditButton>
+          </Link>
         </div>
         <hr className="border-hr"></hr>
         <div className="width-100per text-align-center">

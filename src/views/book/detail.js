@@ -13,14 +13,14 @@ const BookDetail = ({ book, handleRatingChange }) => {
           <div className="grid-item">
             <img
               className="box-shadow width-100per"
-              src={book.imageUrl}
+              src={book1.imageUrl}
               alt="bookimage"
             />
           </div>
           <h3 className="grid-item text-align-center mt-20px">
-            {book.title}{" "}
+            {book1.title}{" "}
             <Rating
-              initialRating={book.rating}
+              initialRating={book1.rating}
               onChange={handleRatingChange}
               className="width-100per text-align-center mt-15px"
               emptySymbol={<AiOutlineStar color="gold" size="20px" />}
